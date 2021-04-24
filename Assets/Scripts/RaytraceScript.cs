@@ -31,7 +31,7 @@ public class RaytraceScript : MonoBehaviour
         if (hitInfo.transform && hitInfo.transform.gameObject.CompareTag("decoration"))
         {
             Debug.Log(hitInfo.transform.gameObject.tag);
-
+            hitInfo.collider.GetComponent<ThrowScript>().hasPlayer = true;
             Aim.color = Color.green;
         }
         else

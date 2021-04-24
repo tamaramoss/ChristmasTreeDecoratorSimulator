@@ -8,10 +8,9 @@ public class ThrowScript : MonoBehaviour
 {
     public Transform player;
     public Transform playerCam;
-    public Image Aim;
     public float throwForce = 10;
     public float pickUpDistance = 2.5f;
-    bool hasPlayer = false;
+    public bool hasPlayer = false;
     bool beingCarried = false;
     // public AudioClip[] soundToPlay;
     // private AudioSource audio;
@@ -20,20 +19,16 @@ public class ThrowScript : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.Find("Player").transform;
+        playerCam = GameObject.Find("PlayerCam").transform;
+
         //audio = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         // float dist = Vector3.Distance(gameObject.transform.position, player.position);
-        if (Aim.color == Color.green)
-        {
-            hasPlayer = true;
-        }
-        else
-        {
-            hasPlayer = false;
-        }
+
         if (hasPlayer && Input.GetMouseButtonDown(1) && !beingCarried)
         {
             Debug.Log("Pick up");
@@ -68,6 +63,8 @@ public class ThrowScript : MonoBehaviour
             //     beingCarried = false;
             // }
         }
+        hasPlayer = false;
+
     }
     void RandomAudio()
     {
