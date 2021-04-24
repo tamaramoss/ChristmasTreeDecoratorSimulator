@@ -2,11 +2,13 @@ using System;
 using UnityEngine;
 using System.Collections;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class ThrowScript : MonoBehaviour
 {
     public Transform player;
     public Transform playerCam;
+    public Image Aim;
     public float throwForce = 10;
     public float pickUpDistance = 2.5f;
     bool hasPlayer = false;
@@ -24,19 +26,21 @@ public class ThrowScript : MonoBehaviour
     void Update()
     {
         // float dist = Vector3.Distance(gameObject.transform.position, player.position);
-        // if (dist <= pickUpDistance)
-        // {
-        //     hasPlayer = true;
-        // }
-        // else
-        // {
-        //     hasPlayer = false;
-        // }
-        if (Input.GetMouseButtonDown(1) && !beingCarried)
+        if (Aim.color == Color.green)
+        {
+            hasPlayer = true;
+        }
+        else
+        {
+            hasPlayer = false;
+        }
+        if (hasPlayer && Input.GetMouseButtonDown(1) && !beingCarried)
         {
             Debug.Log("Pick up");
             GetComponent<Rigidbody>().isKinematic = true;
+            transform.position = player.Find("HoldPosition").position;
             transform.parent = playerCam;
+            
             playerCam.GetComponent<CinemachineVirtualCamera>().LookAt = transform;
             beingCarried = true;
         }
