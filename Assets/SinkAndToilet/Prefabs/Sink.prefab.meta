@@ -1,8 +1,13 @@
 fileFormatVersion: 2
 guid: 08c49dfdb71ae5446b71f603df49bb2e
+<<<<<<< HEAD
 timeCreated: 1461168000
 licenseType: Store
 NativeFormatImporter:
+=======
+PrefabImporter:
+  externalObjects: {}
+>>>>>>> ea01421... nice
   userData: 
   assetBundleName: 
   assetBundleVariant: 
