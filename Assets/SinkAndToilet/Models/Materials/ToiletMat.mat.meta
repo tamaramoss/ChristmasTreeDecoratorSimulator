@@ -1,6 +1,7 @@
 fileFormatVersion: 2
 guid: 73b4d47c32a0a554c93724c609e75f3f
 <<<<<<< HEAD
+<<<<<<< HEAD
 timeCreated: 1461164099
 licenseType: Store
 NativeFormatImporter:
@@ -9,6 +10,11 @@ NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
 >>>>>>> ea01421... nice
+=======
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+>>>>>>> ea014219b40c1a0a37c80b5de573d2140c42e9e4
   userData: 
   assetBundleName: 
   assetBundleVariant: 
