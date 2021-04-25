@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using Cinemachine;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +14,12 @@ public class GameManager : MonoBehaviour
     int score = 0;
     public TextMeshProUGUI TMPtimer;
     public TextMeshProUGUI TMPscore;
+    public GameObject canvas;
+    public GameObject canvasOther;
+    public GameObject player;
+    public GameObject VirtualCamera;
+    public Camera cam;
+    private bool levelEnded = false;
 
     void Awake()
     {
@@ -19,15 +27,23 @@ public class GameManager : MonoBehaviour
             instance = this;
     }
 
-    private void Update() 
+    private void Update()
     {
+        if (levelEnded)
+            return;
+        
         if(remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;   
             TMPtimer.text =  ((int)Math.Round(remainingTime, 0)).ToString();
-        } else 
+        } else
         {
-            // TODO: scene stoppen und level beenden
+            levelEnded = true;
+            canvas.SetActive(true);
+            //canvasOther.SetActive(false);
+            cam.GetComponent<RaytraceScript>().enabled = false;
+            Cursor.lockState = CursorLockMode.None;
+            VirtualCamera.SetActive(true);
         }
     }
     public void addScore(int value)
