@@ -7,19 +7,18 @@ using UnityEngine.UI;
 public class ThrowScript : MonoBehaviour
 {
     public int scoreValue = 10;
-    public Transform player;
-    public Transform playerCam;
     public float throwForce = 400.0f;
     public float pickUpDistance = 2.5f;
     public bool hasPlayer = false;
-    bool beingCarried = false;
+    private bool beingCarried = false;
     // public AudioClip[] soundToPlay;
     // private AudioSource audio;
-    public int dmg;
     private bool touched = false;
     private bool attached = false;
     private Rigidbody rb;
     private GameManager gameManager;
+    private Transform player;
+    private Transform playerCam;
 
     void Start()
     {
@@ -90,7 +89,7 @@ public class ThrowScript : MonoBehaviour
             {
                 FixedJoint joint = col.gameObject.AddComponent<FixedJoint>();
                 joint.connectedBody = rb;
-                // rb.mass = 0.0f;
+                rb.mass = 0.0f;
                 attached = true;
                 gameManager.addScore(scoreValue);
             }
