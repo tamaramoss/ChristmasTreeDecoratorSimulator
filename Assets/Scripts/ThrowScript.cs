@@ -9,7 +9,7 @@ public class ThrowScript : MonoBehaviour
     public int scoreValue = 10;
     public Transform player;
     public Transform playerCam;
-    public float throwForce = 200.0f;
+    public float throwForce = 400.0f;
     public float pickUpDistance = 2.5f;
     public bool hasPlayer = false;
     bool beingCarried = false;
