@@ -12,11 +12,12 @@ public class GameManager : MonoBehaviour
     int score = 0;
     public TextMeshProUGUI TMPtimer;
     public TextMeshProUGUI TMPscore;
+    public AudioClip clip;
+    public AudioSource audioSource;
 
     void Awake()
     {
-        if(!instance)
-            instance = this;
+        instance = this;
     }
 
     private void Update() 
@@ -34,5 +35,11 @@ public class GameManager : MonoBehaviour
     {
         score += value;
         TMPscore.text = score.ToString();
+        audioSource.clip = clip;
+        if(!audioSource.isPlaying)
+        {
+            audioSource.time = 1.9f;
+            audioSource.Play();
+        }
     }
 }
